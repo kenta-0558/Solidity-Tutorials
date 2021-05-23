@@ -18,7 +18,7 @@ contract Token {
     }
 
     function transfer(address _to, uint256 _amount) external {
-        require(balances[msg.sender] <= _amount, "Not enough tokens");
+        require(balances[msg.sender] >= _amount, "Not enough tokens");
 
         balances[msg.sender] -= _amount;
         balances[_to] += _amount;    
