@@ -33,8 +33,24 @@ describe("Token contract", function() {
     describe("Deployment", function() {
         it("Should set the right owner", async function() {
             expect(await hardhatToken.owner()).to.equal(owner.address);
-        });    
+        });  
+        
+        it("Should assign the total supply of tokens to the owner", async function() {
+            const ownerBalance = await hardhatToken.balanceOf(owner.address);
+            expect(await hardhatToken.totalSupply()).to.equal(ownerBalance);
+        });
     });
 
+    describe("Transactions", function() {
+        it("Should transfer tokens between accounts", async function() {
+            await hardhatToken.transfer(address1.address, 50);
+            const address1Account = await hardhatToken.balanceOf(address1.address);
+            expect(address1Account).to.equal(50);
+
+            await hardhatToken.connect(address1).transfer(address2.address, 50);
+            const address2Account = await hardhatToken.balanceOf(address2.address);
+            expect(address2Account).to.equal(50);
+        });
+    });
     
 });
