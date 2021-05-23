@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.7.3;
+import "hardhat/console.sol";
 
 
 contract Token {
@@ -13,6 +14,7 @@ contract Token {
     mapping(address => uint256) balances;
 
     constructor() {
+        console.log(msg.sender);
         balances[msg.sender] = totalSupply;
         owner = msg.sender;   
     }
