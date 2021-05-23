@@ -51,6 +51,14 @@ describe("Token contract", function() {
             const address2Account = await hardhatToken.balanceOf(address2.address);
             expect(address2Account).to.equal(50);
         });
+
+        it("Should fail if sender does not have enough tokens", async function() {
+            const ownerBalanceBeforeTransaction = await hardhatToken.balanceOf(owner.address); 
+            await expect(hardhatToken.connect(address1).transfer(owner.address, 1)).to.be.revertedWith("Not enough tokens");
+            expect(await hardhatToken.balanceOf(owner.address)).to.equal(ownerBalanceBeforeTransaction);
+        });
     });
+
+
     
 });
