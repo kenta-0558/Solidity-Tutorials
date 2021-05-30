@@ -1,0 +1,39 @@
+{
+  "version": "3.2",
+  "log": [
+    {
+      "Box": {
+        "src": "contracts\\Box.sol:4",
+        "version": {
+          "withMetadata": "d483492a97e0faeb54502071971d201e55b3e7a1235ff6888b1b268f5dd24ed2",
+          "withoutMetadata": "925ac28bbf9839bef9f86ec5b41ec3785d913ce448340c01b8751ecba4a82e6f",
+          "linkedWithoutMetadata": "925ac28bbf9839bef9f86ec5b41ec3785d913ce448340c01b8751ecba4a82e6f"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "store(uint256)",
+          "retrieve()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Box",
+              "label": "value",
+              "type": "t_uint256",
+              "src": "contracts\\Box.sol:5"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      }
+    }
+  ]
+}
