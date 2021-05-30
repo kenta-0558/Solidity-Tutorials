@@ -4,7 +4,7 @@ const { ethers } = require('hardhat');
 let Box;
 let box;
 
-deacribe('Box', () => {
+describe('Box', () => {
     beforeEach(async () => {
         Box = await ethers.getContractFactory('Box');
         box = await Box.deploy();
@@ -13,7 +13,7 @@ deacribe('Box', () => {
 
     it('should return a stored value', async () => {
         await box.store(42);
-    });
 
-    expect((await box.retrieve()).toString()).to.equal('42');
+        expect((await box.retrieve()).toString()).to.equal('42');
+    });
 });
